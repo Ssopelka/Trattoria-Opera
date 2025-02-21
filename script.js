@@ -61,7 +61,7 @@ const animateOnScroll = () => {
         if (section.classList.contains('animated')) return;
 
         const rect = section.getBoundingClientRect();
-        if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+        if (rect.top <= windowHeight * 0.99 && rect.bottom >= 0) {
             section.classList.add('animated');
             section.style.opacity = '1';
             section.style.transform = 'translateY(0)';
