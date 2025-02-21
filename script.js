@@ -57,11 +57,10 @@ const animateOnScroll = () => {
     const windowHeight = window.innerHeight;
 
     sections.forEach(section => {
-        // Проверяем, не анимирован ли уже элемент
         if (section.classList.contains('animated')) return;
 
         const rect = section.getBoundingClientRect();
-        if (rect.top <= windowHeight * 0.99 && rect.bottom >= 0) {
+        if (rect.top <= windowHeight + 50 && rect.bottom >= 0) { // Добавляем 50px запаса
             section.classList.add('animated');
             section.style.opacity = '1';
             section.style.transform = 'translateY(0)';
@@ -70,8 +69,7 @@ const animateOnScroll = () => {
 };
 
 // Применяем debounce к функции скролла для оптимизации
-const debouncedAnimate = debounce(animateOnScroll, 100);
-
+const debouncedAnimate = debounce(animateOnScroll, 50);
 // Запуск анимации при загрузке и скролле
 window.addEventListener('scroll', debouncedAnimate);
 window.addEventListener('load', () => {
@@ -139,7 +137,7 @@ styleSheet.textContent = `
     section {
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     }
     section.animated {
         opacity: 1;
