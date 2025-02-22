@@ -145,3 +145,5 @@ styleSheet.textContent = `
     }
 `;
 document.head.appendChild(styleSheet);
+
+document.querySelector('footer p').textContent = `© Trattoria Opera ${new Date().getFullYear()}`;
