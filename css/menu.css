@@ -1,0 +1,131 @@
+#about h2 {
+    margin-bottom: 0.5rem;
+}
+
+#menu p {
+    text-align: center;
+}
+
+.carousel-item .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--carousel-title);
+    text-align: center;
+}
+
+.carousel-item .h4 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--carousel-price);
+}
+
+.carousel-item p {
+    margin-bottom: 0.5rem;
+    color: var(--carousel-text);
+}
+
+.carousel-item img {
+    height: 600px;
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-inner {
+    transition: transform 0.8s ease-in-out;
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    transition: transform 0.8s ease-in-out;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: var(--carousel-arrow-bg);
+    border-radius: 50%;
+    border: none;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: background 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: var(--carousel-arrow-hover);
+}
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: contain;
+}
+
+.menu-btn-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#menu .btn:hover {
+    background-color: var(--btn-hover);
+    transform: scale(1.05);
+    color: var(--btn-text);
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        padding: 15px;
+    }
+    
+    .carousel-item img {
+        max-height: 500px;
+    }
+
+    .carousel-item .col-md-6.p-4 {
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .carousel-item .text-content {
+        padding: 1rem;
+    }
+
+    .carousel-item img {
+        max-height: 400px;
+    }
+
+    .carousel-item h3 {
+        font-size: 2rem;
+        color: var(--carousel-title);
+    }
+
+    .carousel-item .h4 {
+        font-size: 1.2rem;
+    }
+}

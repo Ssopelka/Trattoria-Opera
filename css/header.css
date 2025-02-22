@@ -1,0 +1,102 @@
+header {
+    background: url('/files/photo/main_photo.webp') no-repeat center;
+    background-size: cover;
+    height: calc(100vh - 56px); /* 56px - стандартная высота navbar в Bootstrap */
+    max-height: calc(2160px - 56px);
+    min-height: calc(500px - 56px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--header-text);
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--header-overlay);
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.header-content h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px var(--shadow-dark);
+    color: var(--header-text);
+}
+
+.header-content p {
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Позиционирование стрелки */
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    color: var(--header-text);
+    font-size: 2.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Анимация движения вверх-вниз */
+.scroll-down-arrow {
+    animation: bounce 2s infinite;
+}
+
+/* Остановка анимации при наведении */
+.scroll-down-arrow:hover {
+    animation: none;
+    color: #ffffff;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .header-content h1 {
+        font-size: 4rem;
+    }
+
+    .header-content p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .header-content p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 3rem;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

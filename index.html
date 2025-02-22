@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Trattoria Opera - Итальянский ресторан">
+    <meta property="og:description" content="Вкус Италии в каждом кусочке. Санкт-Петербург, ул. Декабристов, 31.">
+    <meta property="og:image" content="files/photo/main_photo.webp">
+    <title>Trattoria Opera - Итальянский ресторан</title>
+
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/adaptive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/team.css">
+
+    <link rel="preload" href="files/photo/main_photo.webp" as="image">
+</head>
+
+<body>
+    <!-- Навигация (Bootstrap) -->
+    <nav class="navbar navbar-expand-lg" role="navigation">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">Trattoria Opera</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Меню</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Команда</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный раздел -->
+    <header id="home">
+        <div class="header-content">
+            <h1>Trattoria Opera</h1>
+            <p>Вкус Италии в каждом кусочке</p>
+            <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#bookingModal">Забронировать столик</a>
+            <a href="#menu" class="btn">Посмотреть меню</a>
+        </div>
+        <a href="#about" class="scroll-down-arrow" aria-label="Перейти к разделу О нас">
+            <i class="bi bi-chevron-down"></i>
+        </a>
+
+        <!-- Модальное окно -->
+        <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookingModalLabel">Бронирование столика</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="bookingForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Имя</label>
+                                <input type="text" class="form-control" id="name" required>
+                                <div class="error-message text-danger" id="nameError"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Телефон</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                                <div class="error-message text-danger" id="phoneError"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Дата</label>
+                                <input type="date" class="form-control" id="date" required>
+                                <div class="error-message text-danger" id="dateError"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="time" class="form-label">Время</label>
+                                <input type="time" class="form-control" id="time" required>
+                                <div class="error-message text-danger" id="timeError"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="guests" class="form-label">Количество гостей</label>
+                                <input type="number" class="form-control" id="guests" min="1" required>
+                                <div class="error-message text-danger" id="guestsError"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn" id="submitBooking">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- О нас -->
+    <section id="about">
+        <h2>О нас</h2>
+        <p>Trattoria Opera - больше, чем просто ресторан. Это место, где царит атмосфера тепла, уюта и гостеприимства,
+            словно в настоящей итальянской семье. Расположенный в двух шагах от Мариинского театра, наш ресторан
+            приглашает вас насладиться классическими итальянскими блюдами, приготовленными с любовью и страстью.
+            Откройте для себя богатство вкусов в каждой пасте, пицце, салате или закуске.<br>В "Trattoria Opera" каждый
+            гость - часть нашей истории.</p>
+        <div class="section-footer">🍝 Создано с любовью к итальянской кухне 🍝</div>
+    </section>
+
+    <!-- Меню -->
+    <section id="menu">
+        <h2>Наше меню</h2>
+        <p>Попробуйте наши самые популярные блюда:</p>
+        <div id="menuCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Меню ресторана">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <img src="files/photo/tiramisy.webp" loading="lazy" class="d-block w-100"
+                                alt="Тирамису - нежный итальянский десерт">
+                        </div>
+                        <div class="col-md-6 p-4">
+                            <h3>Тирамису</h3>
+                            <p>Нежный итальянский десерт с маскарпоне, кофе и савоярди.</p>
+                            <p class="h4">450 руб.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <img src="files/photo/pizza_s_krevetkami.webp" loading="lazy" class="d-block w-100"
+                                alt="Пицца с цукини и креветками">
+                        </div>
+                        <div class="col-md-6 p-4">
+                            <h3>Пицца с цукини и креветками</h3>
+                            <p>Тонкое тесто, свежие цукини и сочные креветки с сыром.</p>
+                            <p class="h4">??? руб.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <img src="files/photo/pizza_kaprichosa.webp" loading="lazy" class="d-block w-100"
+                                alt="Пицца Капричиоза">
+                        </div>
+                        <div class="col-md-6 p-4">
+                            <h3>Пицца Капричиоза</h3>
+                            <p>Классика с ветчиной, грибами, артишоками и оливками.</p>
+                            <p class="h4">820 руб.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <img src="files/photo/moreprodykti_na_grille.webp" loading="lazy" class="d-block w-100"
+                                alt="Морепродукты на гриле">
+                        </div>
+                        <div class="col-md-6 p-4">
+                            <h3>Морепродукты на гриле</h3>
+                            <p>Ассорти из свежих морепродуктов с ароматом дымка.</p>
+                            <p class="h4">1240 руб.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <img src="files/photo/panakota.webp" loading="lazy" class="d-block w-100" alt="Панакота">
+                        </div>
+                        <div class="col-md-6 p-4">
+                            <h3>Паннакотта</h3>
+                            <p>Кремовый десерт с ванилью и ягодным соусом.</p>
+                            <p class="h4">380 руб.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Заменённые стрелки -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#menuCarousel" data-bs-slide="prev"
+                aria-label="Предыдущее блюдо">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#menuCarousel" data-bs-slide="next"
+                aria-label="Следующее блюдо">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="menu-btn-container">
+            <a href="#full-menu" class="btn">Полное меню</a>
+        </div>
+        <div class="section-footer">🍕 Вкус, который вдохновляет 🍕</div>
+    </section>
+
+    <!-- Команда -->
+    <section id="team">
+        <h2>Наша команда</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="files/photo/Barinov.webp" loading="lazy" alt="Виктор">
+                <p><strong>Виктор</strong><br><small>Шеф-повар</small></p>
+            </div>
+            <div class="team-member">
+                <img src="files/photo/Senya.webp" loading="lazy" alt="Арсений">
+                <p><strong>Арсений</strong><br><small>Повар</small></p>
+            </div>
+            <div class="team-member">
+                <img src="files/photo/Viktoria.jpg" loading="lazy" alt="Виктория">
+                <p><strong>Виктория</strong><br><small>Менеджер</small></p>
+            </div>
+            <div class="team-member">
+                <img src="files/photo/Sasha.webp" loading="lazy" alt="Александра">
+                <p><strong>Александра</strong><br><small>Официант</small></p>
+            </div>
+        </div>
+        <div class="section-footer">👩‍🍳 Наши мастера итальянской кухни 👨‍🍳</div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts">
+        <h2>Контакты</h2>
+        <div class="contacts-container">
+            <div class="contacts-content">
+                <p><strong>Адрес:</strong> <a
+                        href="https://yandex.ru/maps/org/opera_trattoriya/203396353214/?ll=30.291758%2C59.925746&z=15">СПБ,
+                        улица Декабристов, 31</a><br>
+                    <strong>Время работы:</strong> 12:00 - 23:00<br>
+                    <strong>Телефон:</strong> <a href="tel:+79522069200">+7 (952) 206-92-00</a><br>
+                    <strong>ВКонтакте:</strong> <a href="https://vk.com/club228411165" target="_blank">«Опера»
+                        Траттория</a>
+                </p>
+            </div>
+            <div id="map" aria-label="Карта расположения Trattoria Opera"></div>
+            <noscript>
+                <p>Карта недоступна без JavaScript. Адрес: СПБ, улица Декабристов, 31</p>
+            </noscript>
+        </div>
+        <div class="section-footer">📍 Ждем вас в гости! 📍</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Trattoria Opera</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+    <script src="js/booking.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

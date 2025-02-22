@@ -1,0 +1,227 @@
+:root {
+    --background-body: #f9e8d9;
+    --text-body: #4a2c2a;
+    --link-default: #000000;
+    --link-hover: #5a4636;
+    --navbar-bg: #5a4636;
+    --navbar-text: #fff;
+    --navbar-brand-hover: #fff;
+    --navbar-hover: #d9534f;
+    --navbar-toggler-hover: rgba(139, 69, 19, 1);
+    --header-overlay: rgba(0, 0, 0, 0.55);
+    --header-text: #fff;
+    --section-bg: #fff;
+    --section-gradient-start: #5a4636;
+    --section-gradient-end: #d9534f;
+    --btn-bg: #d9534f;
+    --btn-hover: #c9302c;
+    --btn-text: #fff;
+    --carousel-title: #4a2c2a;
+    --carousel-price: #d9534f;
+    --carousel-text: #666;
+    --carousel-arrow-bg: rgba(139, 69, 19, 0.7);
+    --carousel-arrow-hover: rgba(139, 69, 19, 1);
+    --team-border: #d9534f;
+    --section-footer-text: #5a4636;
+    --footer-bg: #5a4636;
+    --footer-text: #fff;
+    --shadow-dark: rgba(0, 0, 0, 0.7);
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-body);
+    color: var(--text-body);
+    line-height: 1.6;
+    animation: fadeFromWhite 1.5s ease-in-out forwards;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/files/photo/food.png') repeat center;
+    background-size: auto; 
+    opacity: 1; 
+    z-index: -1;
+}
+
+section {
+    padding: 80px 20px;
+    background: var(--section-bg);
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+    scroll-margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, var(--section-gradient-start), var(--section-gradient-end));
+    border-radius: 15px 15px 0 0;
+}
+
+.section-footer {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--section-footer-text);
+    opacity: 0.7;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--section-gradient-end);
+    border-radius: 2px;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--link-default);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px 10px 0 0;
+}
+
+.btn:hover {
+    background-color: var(--btn-hover);
+    transform: scale(0.95);
+    color: var(--btn-text);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    section {
+        padding: 60px 15px;
+    }
+
+    .section-footer {
+
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        scroll-margin-top: 70px;
+        padding: 50px 10px;
+    }
+
+    .section-footer {
+        bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 40px 10px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        margin: 10px 0;
+        width: auto;
+        max-width: 250px;
+    }
+}
+
+@media (min-width: 481px) {
+    .btn {
+        margin: 10px 10px 0 0;
+        width: auto;
+    }
+}
