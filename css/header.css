@@ -1,28 +1,26 @@
 header {
-    height: calc(100vh - 56px); /* Учитываем высоту navbar */
+    height: calc(100vh - 56px);
     max-height: calc(2160px - 56px);
-    min-height: calc(500px - 56px);
+    min-height: calc(600px - 56px);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--header-text);
     position: relative;
-    overflow: hidden; /* Чтобы изображение не выходило за границы */
+    overflow: hidden;
 }
 
-/* Стили для фонового изображения */
 .header-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Аналог background-size: cover */
-    z-index: 0; /* Помещаем изображение под контент */
+    object-fit: cover;
+    z-index: 0;
 }
 
-/* Затемнение (псевдоэлемент остается в header) */
 header::before {
     content: '';
     position: absolute;
@@ -30,8 +28,8 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--header-overlay); /* Затемнение */
-    z-index: 1; /* Над изображением, но под контентом */
+    background: var(--header-overlay);
+    z-index: 1;
 }
 
 .header-content {
@@ -40,6 +38,8 @@ header::before {
     padding: 20px;
     opacity: 0;
     animation: fadeInUp 1s ease-out 0.5s forwards;
+    width: 100%; /* Для контроля ширины на маленьких экранах */
+    max-width: 1200px; /* Ограничение максимальной ширины */
 }
 
 .header-content h1 {
@@ -53,9 +53,21 @@ header::before {
 .header-content p {
     font-weight: 300;
     font-style: italic;
+    margin-bottom: 1.5rem; /* Отступ перед кнопками */
 }
 
-/* Позиционирование стрелки */
+/* Стили для кнопок */
+.header-content .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    min-width: 200px; /* Минимальная ширина кнопок */
+    width: auto; /* По умолчанию растягивается по содержимому */
+    margin: 0.5rem; /* Отступы между кнопками */
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Стрелка вниз */
 .scroll-down-arrow {
     position: absolute;
     bottom: 20px;
@@ -66,14 +78,9 @@ header::before {
     font-size: 2.5rem;
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-/* Анимация движения вверх-вниз */
-.scroll-down-arrow {
     animation: bounce 2s infinite;
 }
 
-/* Остановка анимации при наведении */
 .scroll-down-arrow:hover {
     animation: none;
     color: #ffffff;
@@ -81,34 +88,108 @@ header::before {
 
 /* Адаптивность */
 @media (max-width: 1024px) {
+    .header-content {
+        padding: 15px;
+    }
+
     .header-content h1 {
         font-size: 4rem;
     }
 
     .header-content p {
+        font-size: 1.75rem;
+    }
+
+    .header-content .btn {
+        min-width: 180px;
+    }
+
+    .scroll-down-arrow {
         font-size: 2rem;
+        bottom: 15px;
     }
 }
 
 @media (max-width: 768px) {
+    header {
+        min-height: calc(500px - 56px); /* Уменьшаем минимальную высоту */
+    }
+
     .header-content h1 {
         font-size: 3.5rem;
     }
 
     .header-content p {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    .header-content .btn {
+        min-width: 160px;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .scroll-down-arrow {
+        font-size: 1.75rem;
     }
 }
 
 @media (max-width: 480px) {
-    .header-content h1 {
-        font-size: 3rem;
+    header {
+        min-height: calc(400px - 56px); 
     }
 
     .header-content {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 10px;
+    }
+
+    .header-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .header-content p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Кнопки в столбец с одинаковой шириной */
+    .header-content .btn {
+        width: 100%; 
+        max-width: 300px; 
+        margin: 0.5rem 0; 
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .scroll-down-arrow {
+        font-size: 1.5rem;
+        bottom: 10px;
     }
 }
 
+@media (max-width: 360px) {
+    header {
+        min-height: calc(350px - 56px);
+    }
+
+    .header-content h1 {
+        font-size: 2rem;
+    }
+
+    .header-content p {
+        font-size: 0.9rem;
+    }
+
+    .header-content .btn {
+        max-width: 250px;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .scroll-down-arrow {
+        font-size: 1.25rem;
+    }
+}

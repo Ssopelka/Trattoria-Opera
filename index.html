@@ -29,6 +29,9 @@
 </head>
 
 <body>
+    <!-- Фоновый слой -->
+    <div style="content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('/files/photo/food.png') repeat center; background-size: auto; opacity: 1; z-index: -1;"></div>
+   
     <!-- Навигация (Bootstrap) -->
     <nav class="navbar navbar-expand-lg" role="navigation">
         <div class="container-fluid">
@@ -70,32 +73,31 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="bookingModalLabel">Бронирование столика</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                     </div>
                     <div class="modal-body">
                         <form id="bookingForm">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Имя</label>
+                                <label for="name" class="form-label">Имя:</label>
                                 <input type="text" class="form-control" id="name" required>
                                 <div class="error-message text-danger" id="nameError"></div>
                             </div>
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Телефон</label>
+                                <label for="phone" class="form-label">Телефон:</label>
                                 <input type="tel" class="form-control" id="phone" required>
                                 <div class="error-message text-danger" id="phoneError"></div>
                             </div>
                             <div class="mb-3">
-                                <label for="date" class="form-label">Дата</label>
+                                <label for="date" class="form-label">Дата:</label>
                                 <input type="date" class="form-control" id="date" required>
                                 <div class="error-message text-danger" id="dateError"></div>
                             </div>
                             <div class="mb-3">
-                                <label for="time" class="form-label">Время</label>
+                                <label for="time" class="form-label">Время:</label>
                                 <input type="time" class="form-control" id="time" required>
                                 <div class="error-message text-danger" id="timeError"></div>
                             </div>
                             <div class="mb-3">
-                                <label for="guests" class="form-label">Количество гостей</label>
+                                <label for="guests" class="form-label">Количество гостей:</label>
                                 <input type="number" class="form-control" id="guests" min="1" required>
                                 <div class="error-message text-danger" id="guestsError"></div>
                             </div>
