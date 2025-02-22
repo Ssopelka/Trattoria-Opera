@@ -1,5 +1,5 @@
 header {
-    background: url('/files/photo/main_photo.webp') no-repeat center;
+    background: url('./files/photo/main_photo.webp') no-repeat center;
     background-size: cover;
     height: calc(100vh - 56px); /* 56px - стандартная высота navbar в Bootstrap */
     max-height: calc(2160px - 56px);
