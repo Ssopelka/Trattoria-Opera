@@ -1,7 +1,8 @@
+/* booking.css */
 .error-message {
     font-size: 0.9rem;
-    margin-top: 5px;
-    min-height: 20px;
+    margin-top: 2px;
+    min-height: 18px;
 }
 
 .text-danger {
@@ -23,7 +24,7 @@
     background: var(--section-gradient-end);
     color: var(--header-text);
     border-bottom: none;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,33 +32,47 @@
 
 .modal-title {
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
     text-shadow: 1px 1px 3px var(--shadow-dark);
     margin: 0;
     text-align: left;
 }
 
 .modal-body {
-    padding: 30px;
+    padding: 15px;
     color: var(--text-body);
+}
+
+/* Контейнер для формы с фиксированной шириной */
+#bookingForm {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.modal-footer {
+    max-width: 100%;
 }
 
 .form-label {
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--carousel-title);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    display: block;
 }
 
 .form-control {
     background-color: var(--background-body);
     border: 2px solid var(--section-gradient-start);
     border-radius: 8px;
-    padding: 10px;
+    padding: 10px 15px;
     font-size: 1.1rem;
     color: var(--text-body);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
 .form-control:focus {
@@ -72,28 +87,28 @@
 }
 
 .mb-3 {
-    margin-bottom: 20px !important;
+    margin-bottom: 12px !important;
 }
 
 /* Кнопки и футер */
 .modal-footer {
-    padding: 20px;
+    padding: 15px;
     border-top: none;
     background-color: var(--section-bg);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Кнопки по бокам на больших экранах */
     gap: 10px;
+    width: 100%;
+    margin: 0 auto; /* Центрирование футера */
 }
 
 .modal-footer .btn {
     border: none;
     border-radius: 5px;
-    padding: 12px 25px;
+    padding: 12px 20px;
     font-size: 1.1rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
     height: 48px;
-    flex: 1;
-    max-width: 200px;
 }
 
 .modal-footer .btn-secondary {
@@ -138,30 +153,47 @@
 /* Адаптивность */
 @media (max-width: 1024px) {
     .modal-content { border-radius: 12px; }
-    .modal-body { padding: 25px; }
+    .modal-body { padding: 12px; }
     .modal-title { font-size: 1.8rem; }
-    .modal-footer { padding: 15px; }
+    .modal-footer { padding: 12px; }
     .modal-footer .btn {
-        padding: 10px 20px;
+        padding: 10px 15px;
         font-size: 1rem;
-        max-width: 180px;
     }
 }
+
+#bookingForm, .modal-footer {
+    max-width: 100%;
+}
+.modal-header { padding: 12px; }
+.modal-title { font-size: 1.6rem; }
+.form-label { font-size: 1.1rem; }
+.form-control {
+    font-size: 1rem;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+.modal-body { padding: 12px; }
+.modal-footer { padding: 12px; }
 
 @media (max-width: 768px) {
     .modal-dialog {
         margin: 10px auto;
         max-width: 90%;
     }
-    .modal-header { padding: 15px; }
+    #bookingForm, .modal-footer {
+        max-width: 100%;
+    }
+    .modal-header { padding: 12px; }
     .modal-title { font-size: 1.6rem; }
     .form-label { font-size: 1.1rem; }
     .form-control {
         font-size: 1rem;
-        padding: 8px;
+        padding: 8px 12px;
+        margin-bottom: 8px;
     }
-    .modal-body { padding: 20px; }
-    .modal-footer { padding: 15px; }
+    .modal-body { padding: 12px; }
+    .modal-footer { padding: 12px; }
 }
 
 @media (max-width: 480px) {
@@ -170,27 +202,29 @@
         margin: 5px auto;
     }
     .modal-content { border-radius: 10px; }
-    .modal-header { padding: 12px; }
+    .modal-header { padding: 10px; }
     .modal-title { font-size: 1.4rem; }
-    .modal-body { padding: 15px; }
+    .modal-body { padding: 10px; }
     .form-label {
         font-size: 0.95rem;
-        margin-bottom: 6px;
+        margin-bottom: 3px;
     }
     .form-control {
         font-size: 0.9rem;
-        padding: 6px;
+        padding: 6px 10px;
         border-width: 1px;
+        margin-bottom: 6px;
     }
     .modal-footer {
-        flex-direction: column;
+        flex-direction: column; /* Кнопки друг под другом */
         padding: 10px;
         gap: 8px;
+        justify-content: center;
     }
     .modal-footer .btn {
-        width: 100%;
-        max-width: none;
-        padding: 10px 15px;
+        width: 100%; /* Кнопки занимают всю ширину футера */
+        max-width: none; /* Убираем ограничение ширины */
+        padding: 10px; /* Равномерные отступы */
         font-size: 0.9rem;
         height: 44px;
     }
@@ -198,18 +232,21 @@
 
 @media (max-width: 360px) {
     .modal-title { font-size: 1.2rem; }
-    .form-label { font-size: 0.9rem; }
+    .form-label { 
+        font-size: 0.9rem;
+    }
     .form-control {
         font-size: 0.85rem;
-        padding: 5px;
+        padding: 5px 8px;
+        margin-bottom: 5px;
     }
     .modal-footer .btn {
         font-size: 0.85rem;
-        padding: 8px 12px;
+        padding: 8px;
     }
     .error-message {
         font-size: 0.8rem;
-        min-height: 16px;
+        min-height: 14px;
     }
 }
 
