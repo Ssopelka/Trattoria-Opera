@@ -11,13 +11,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
 }
 
 .carousel-item h3 {
+    height: 3em;
     font-size: 2rem;
+    overflow: hidden;
     font-weight: 600;
     color: var(--carousel-title);
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-item .h4 {
@@ -34,11 +40,11 @@
 .carousel-item img {
     height: auto;
     width: 100%;
-    max-width: 100%; /* Предотвращаем выход за контейнер */
+    max-width: 100%;
     border-radius: 15px;
-    object-fit: cover; /* Сохраняем пропорции, обрезая лишнее */
+    object-fit: cover;
     display: block;
-    max-height: 400px; /* Ограничиваем максимальную высоту на больших экранах */
+    max-height: 400px;
 }
 
 .carousel-inner {
@@ -105,29 +111,6 @@
 }
 
 @media (max-width: 768px) {
-    .carousel-item {
-        padding: 10px;
-    }
-
-    .carousel-item img {
-        max-height: 300px;
-        border-radius: 10px;
-    }
-
-    .carousel-item .row {
-        flex-direction: column;
-    }
-
-    .carousel-item .col-md-6.p-4 {
-        border-radius: 0;
-        padding: 1rem;
-    }
-
-    .carousel-item img {
-        max-width: 100%;
-        height: auto;
-    }
-
     #menu .btn {
         width: 100%;
         margin: 0.5rem 0;
@@ -135,21 +118,6 @@
 }
 
 @media (max-width: 480px) {
-    .carousel {
-        max-width: 100%;
-        padding: 0 5px;
-    }
-
-    .carousel-item {
-        padding: 5px;
-    }
-
-    .carousel-item img {
-        max-height: 200px;
-        border-radius: 8px;
-        width: 100%;
-    }
-
     .carousel-item .text-content {
         padding: 0.75rem;
     }
@@ -187,11 +155,6 @@
 
 /* Добавляем поддержку сверхмалых экранов (меньше 360px) */
 @media (max-width: 360px) {
-    .carousel-item img {
-        max-height: 150px; 
-        border-radius: 6px; 
-    }
-
     .carousel-item h3 {
         font-size: 1.25rem;
     }

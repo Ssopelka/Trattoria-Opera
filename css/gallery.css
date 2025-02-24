@@ -1,50 +1,69 @@
-.gallery-grid {
-    padding: 0;
-    background: none;
-    border-radius: 15px;
-    overflow: hidden;
-    
+.gallery-slider-container {
+    max-width: 80%;
+    margin: 0 auto;
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+.gallery-slider-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.gallery-slider {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.gallery-track {
+    display: flex;
+    flex-direction: column;
+    animation: slideBackForth 60s linear infinite;
+    width: 100%;
+    transform: translateY(0);
 }
 
 .gallery-card {
     position: relative;
     width: 100%;
-    height: 400px; /* Фиксированная квадратная высота для всех экранов */
-    border: 2px solid var(--section-gradient-start); /* Элегантная рамка в цвете палитры */
+    height: 50vh;
+    border: 2px solid var(--section-gradient-start);
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    margin: 15px auto;
+    flex-shrink: 0;
 }
 
 .gallery-card:hover {
     transform: scale(0.99);
-    box-shadow: 0 12px 25px var(--shadow-medium);
 }
 
 .gallery-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Изображения заполняют квадрат, слегка обрезая для эстетики */
+    object-fit: cover;
     border-radius: 10px;
     transition: transform 0.4s ease;
 }
 
 .gallery-card:hover .gallery-img {
-    transform: scale(1.1); /* Более заметное увеличение при наведении */
+    transform: scale(1.1);
 }
 
-/* Декоративный акцент (градиентная полоса внизу) */
+/* Декоративный акцент */
 .gallery-card::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 6px;
+    height: 8px;
     background: linear-gradient(to right, var(--section-gradient-start), var(--section-gradient-end));
     opacity: 0.9;
     transition: opacity 0.3s ease;
@@ -54,61 +73,20 @@
     opacity: 1;
 }
 
-/* Центрирование сетки, если нечётное количество фото */
-.gallery-grid .row {
-    justify-content: center;
-}
-
-/* Адаптивность */
-@media (min-width: 1200px) {
-    /* 3 изображения на очень широких экранах */
-    .gallery-card {
-        height: 400px;
+@keyframes slideBackForth {
+    0% {
+        transform: translateY(0);
     }
-    .col-lg-4 {
-        max-width: 33.333333%;
-        flex: 0 0 33.333333%;
+    50% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
-    /* 3 изображения на широких экранах */
-    .gallery-card {
-        height: 350px;
-    }
-    .col-lg-4 {
-        max-width: 33.333333%;
-        flex: 0 0 33.333333%;
-    }
+/* Пауза при наведении */
+.gallery-slider-container:hover .gallery-track {
+    animation-play-state: paused;
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-    /* 2 изображения на средних экранах */
-    .gallery-card {
-        height: 300px;
-    }
-    .col-md-6 {
-        max-width: 50%;
-        flex: 0 0 50%;
-    }
-}
-
-@media (max-width: 767px) {
-    /* 1 изображение на маленьких экранах */
-    .gallery-card {
-        height: 250px;
-        max-width: 250px;
-        margin-bottom: 20px;
-    }
-    .col-12 {
-        max-width: 100%;
-        flex: 0 0 50%;
-    }
-}
-
-@media (max-width: 480px) {
-    .col-12 {
-        max-width: 100%;
-        flex: 0 0 100%;
-    }
-}
