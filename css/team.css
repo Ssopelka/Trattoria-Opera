@@ -32,7 +32,6 @@
     margin-bottom: 1rem;
 }
 
-/* Typography - assuming these would be added */
 .team-member h3 {
     margin: 0.5rem 0 0.25rem;
     font-size: 1.25rem;
@@ -41,23 +40,10 @@
 
 .team-member p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: #666;
 }
 
-/* Animation keyframes */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
 @media (max-width: 1200px) {
     .team {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
