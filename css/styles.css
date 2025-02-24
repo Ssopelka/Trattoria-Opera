@@ -158,6 +158,16 @@ a:hover {
 }
 
 /* Адаптивность */
+@media (max-width: 1200px) {
+    section {
+        border-radius: 0;
+    }
+
+    section::before {
+        border-radius: 0;
+    }
+}
+
 @media (max-width: 1024px) {
     section {
         padding: 60px 15px;
