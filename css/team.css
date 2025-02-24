@@ -1,50 +1,112 @@
 .team {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 0.6s ease-in;
 }
 
 .team-member {
-    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    transition: transform 0.3s ease;
+    /* Removed: background, padding, border-radius, box-shadow */
+    transition: all 0.3s ease-in-out;
 }
 
 .team-member:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
+    /* Removed box-shadow on hover */
 }
 
 .team-member img {
     width: 100%;
+    max-width: 220px;
     min-height: 360px;
     border-radius: 50%;
     border: 3px solid var(--team-border);
+    object-fit: cover;
+    margin-bottom: 1rem;
 }
 
-/* Адаптивность */
-@media (max-width: 1024px) {
-    .team-member {
-        width: 180px;
-    }
+/* Typography - assuming these would be added */
+.team-member h3 {
+    margin: 0.5rem 0 0.25rem;
+    font-size: 1.25rem;
+    color: #333;
+}
 
+.team-member p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .team {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
     .team-member img {
-        min-height: 200px;
+        max-width: 180px;
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 980px) {
+    .team {
+        grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
+        gap: 5rem;
+    }
+    
+    .team-member img {
+        max-width: 220px;
+        min-height: 360px;
     }
 }
 
 @media (max-width: 768px) {
-    .team-member {
-        width: 150px;
+    .team {
+        grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
+        gap: 3rem;
     }
-
+    
     .team-member img {
-        min-height: 150px;
+        max-width: 190px;
+        min-height: 320px;
     }
 }
 
 @media (max-width: 480px) {
+    .team {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+        padding: 1rem;
+    }
+    
     .team-member {
-        width: 120px;
+        margin: 0 auto;
+    }
+    
+    .team-member img {
+        max-width: 220px;
+        min-height: 360px;
     }
 }

@@ -111,6 +111,10 @@
     height: 48px;
 }
 
+.modal-footer .btn-submit {
+    margin-right: 0;
+}
+
 .modal-footer .btn-secondary {
     background-color: var(--navbar-bg);
     color: var(--navbar-text);

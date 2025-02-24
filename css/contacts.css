@@ -6,6 +6,10 @@
     position: relative;
 }
 
+#contacts p {
+    text-align: start;
+}
+
 .contacts-container {
     display: flex;
     flex: 1;

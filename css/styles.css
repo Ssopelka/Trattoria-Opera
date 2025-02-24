@@ -8,7 +8,7 @@
     --navbar-brand-hover: #fff;
     --navbar-hover: #d9534f;
     --navbar-toggler-hover: rgba(139, 69, 19, 1);
-    --header-overlay: rgba(0, 0, 0, 0.25);
+    --header-overlay: rgba(0, 0, 0, 0.1);
     --header-text: #fff;
     --section-bg: #fff;
     --section-gradient-start: #5a4636;
@@ -76,6 +76,10 @@ section {
     flex-direction: column;
     justify-content: space-between;
     opacity: 0;
+}
+
+section h2, p {
+    text-align: center;
 }
 
 section::before {
